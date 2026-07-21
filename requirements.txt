@@ -1,0 +1,9 @@
+# Runtime dependencies for deployment (Railway / Nixpacks).
+# Mirrors the runtime deps in pyproject.toml. Dev tools are installed via '.[dev]' locally.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.9
+pydantic-settings>=2.5
+sqlalchemy>=2.0
+alembic>=1.13
+psycopg[binary]>=3.2

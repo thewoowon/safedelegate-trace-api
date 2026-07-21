@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://safedelegate.trace/schemas/msts-lite.schema.json",
+  "title": "MSTS-Lite Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "event_id",
+    "trace_id",
+    "timestamp_utc",
+    "jurisdiction",
+    "institution_id",
+    "principal_id",
+    "agent_id",
+    "agent_role",
+    "autonomy_level",
+    "criticality_level",
+    "trigger_type",
+    "user_intent",
+    "delegated_scope",
+    "model_provider",
+    "model_name",
+    "model_version",
+    "data_sources",
+    "tool_calls",
+    "recommended_action",
+    "executed_action",
+    "human_review_status",
+    "policy_decision",
+    "risk_flags",
+    "confidence_metadata",
+    "override_status",
+    "post_action_outcome",
+    "retention_class",
+    "supervisory_access_tier"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "msts-lite-0.1"
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "trace_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "timestamp_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "jurisdiction": {
+      "type": "string",
+      "minLength": 2
+    },
+    "institution_id": {
+      "type": "string"
+    },
+    "principal_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "agent_role": {
+      "type": "string"
+    },
+    "autonomy_level": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "criticality_level": {
+      "enum": [
+        "C1",
+        "C2",
+        "C3",
+        "C4"
+      ]
+    },
+    "trigger_type": {
+      "type": "string"
+    },
+    "user_intent": {
+      "type": "string"
+    },
+    "delegated_scope": {
+      "type": "object"
+    },
+    "model_provider": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "data_sources": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tool_calls": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "recommended_action": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "executed_action": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "human_review_status": {
+      "enum": [
+        "NOT_REQUIRED",
+        "PENDING",
+        "APPROVED",
+        "REJECTED",
+        "EXPIRED"
+      ]
+    },
+    "policy_decision": {
+      "enum": [
+        "ALLOW",
+        "REQUIRE_APPROVAL",
+        "DENY",
+        "QUARANTINE"
+      ]
+    },
+    "risk_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence_metadata": {
+      "type": "object"
+    },
+    "override_status": {
+      "enum": [
+        "NONE",
+        "REQUESTED",
+        "APPLIED",
+        "REJECTED"
+      ]
+    },
+    "post_action_outcome": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "retention_class": {
+      "enum": [
+        "R30D",
+        "R1Y",
+        "R5Y",
+        "DEMO"
+      ]
+    },
+    "supervisory_access_tier": {
+      "enum": [
+        "T0",
+        "T1",
+        "T2",
+        "T3",
+        "T4"
+      ]
+    }
+  }
+}

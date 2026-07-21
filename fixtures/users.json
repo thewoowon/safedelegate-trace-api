@@ -1,0 +1,8 @@
+[
+  {
+    "id": "principal-demo-won",
+    "display_name": "원 데모 사용자",
+    "demo_identity_type": "SYNTHETIC",
+    "notice": "실제 고객 정보가 아닌 합성 데이터입니다."
+  }
+]

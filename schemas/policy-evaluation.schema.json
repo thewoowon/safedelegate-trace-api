@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Policy Evaluation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "evaluation_id",
+    "policy_id",
+    "policy_version",
+    "rule_set_version",
+    "plan_hash",
+    "decision",
+    "risk_score",
+    "risk_level",
+    "rule_results",
+    "created_at"
+  ],
+  "properties": {
+    "evaluation_id": {
+      "type": "string"
+    },
+    "policy_id": {
+      "type": "string"
+    },
+    "policy_version": {
+      "type": "integer"
+    },
+    "rule_set_version": {
+      "type": "string"
+    },
+    "plan_hash": {
+      "type": "string"
+    },
+    "decision": {
+      "enum": [
+        "ALLOW",
+        "REQUIRE_APPROVAL",
+        "DENY",
+        "QUARANTINE"
+      ]
+    },
+    "risk_score": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "risk_level": {
+      "enum": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ]
+    },
+    "rule_results": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

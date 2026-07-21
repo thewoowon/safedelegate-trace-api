@@ -1,0 +1,128 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://safedelegate.trace/schemas/action-receipt.schema.json",
+  "title": "SafeDelegate Action Receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "receipt_id",
+    "trace_id",
+    "status",
+    "headline",
+    "user_request",
+    "agent_plan",
+    "authorization",
+    "safety_decision",
+    "human_approval",
+    "actual_outcome",
+    "data_used",
+    "tools_used",
+    "explanation",
+    "next_actions",
+    "integrity"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "action-receipt-0.1"
+    },
+    "receipt_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "trace_id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "APPROVAL_REQUIRED",
+        "BLOCKED",
+        "QUARANTINED",
+        "FAILED_SAFE"
+      ]
+    },
+    "headline": {
+      "type": "string"
+    },
+    "user_request": {
+      "type": "string"
+    },
+    "agent_plan": {
+      "type": "object"
+    },
+    "authorization": {
+      "type": "object"
+    },
+    "safety_decision": {
+      "type": "object"
+    },
+    "human_approval": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "actual_outcome": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "data_used": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "tools_used": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "explanation": {
+      "type": "object",
+      "required": [
+        "summary",
+        "reasons"
+      ],
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "next_actions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "integrity": {
+      "type": "object",
+      "required": [
+        "event_hash",
+        "canonicalization_version"
+      ],
+      "properties": {
+        "event_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "canonicalization_version": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

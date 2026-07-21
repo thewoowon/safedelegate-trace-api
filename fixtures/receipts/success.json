@@ -1,0 +1,67 @@
+{
+  "schema_version": "action-receipt-0.1",
+  "receipt_id": "b8cfa990-34f3-47fb-884e-46e8ad3ebf91",
+  "trace_id": "2d4865a0-f738-4d43-a639-29c36876ab20",
+  "status": "COMPLETED",
+  "headline": "금리인하요구 신청이 승인 후 제출되었습니다.",
+  "user_request": "대출 금리인하요구 조건이 충족되면 필요한 자료를 확인하고 신청을 준비해줘.",
+  "agent_plan": {
+    "action_type": "RATE_REDUCTION_REQUEST",
+    "institution": "HANUL_BANK"
+  },
+  "authorization": {
+    "policy_id": "policy-rate-001",
+    "policy_version": 1,
+    "matched": true
+  },
+  "safety_decision": {
+    "decision": "REQUIRE_APPROVAL",
+    "risk_level": "MEDIUM"
+  },
+  "human_approval": {
+    "status": "APPROVED",
+    "approved_plan_hash": "demo-plan-hash"
+  },
+  "actual_outcome": {
+    "status": "SUBMITTED",
+    "reference": "DEMO-RATE-2026-001"
+  },
+  "data_used": [
+    {
+      "class": "CURRENT_RATE",
+      "purpose": "eligibility"
+    },
+    {
+      "class": "INCOME_CHANGE_FLAG",
+      "purpose": "eligibility"
+    }
+  ],
+  "tools_used": [
+    {
+      "name": "prepare_rate_reduction_request",
+      "status": "COMPLETED"
+    },
+    {
+      "name": "submit_rate_reduction_request",
+      "status": "COMPLETED"
+    }
+  ],
+  "explanation": {
+    "summary": "설정한 범위 안에서 신청이 준비되었고, 제출 전에 직접 승인했습니다.",
+    "reasons": [
+      "허용된 은행과 상품",
+      "허용된 데이터만 사용",
+      "제출 전 인간 승인 완료"
+    ]
+  },
+  "next_actions": [
+    {
+      "type": "VIEW_STATUS",
+      "label": "신청 상태 확인"
+    }
+  ],
+  "integrity": {
+    "event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "canonicalization_version": "jcs-demo-0.1"
+  }
+}

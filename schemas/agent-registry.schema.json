@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Registry Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "agent_id",
+    "name",
+    "owner_institution",
+    "role",
+    "autonomy_level",
+    "model",
+    "allowed_tools",
+    "status",
+    "kill_switch_owner"
+  ],
+  "properties": {
+    "agent_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "owner_institution": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string"
+    },
+    "autonomy_level": {
+      "enum": [
+        "L0",
+        "L1",
+        "L2",
+        "L3",
+        "L4"
+      ]
+    },
+    "model": {
+      "type": "object"
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "PAUSED",
+        "REVOKED"
+      ]
+    },
+    "kill_switch_owner": {
+      "type": "string"
+    },
+    "jurisdiction_tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

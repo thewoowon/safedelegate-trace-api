@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Delegation Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "policy_id",
+    "version",
+    "principal_id",
+    "agent_id",
+    "purpose",
+    "allowed_action_types",
+    "allowed_institutions",
+    "allowed_data_classes",
+    "allowed_tools",
+    "approval_rules",
+    "valid_from",
+    "valid_until",
+    "status"
+  ],
+  "properties": {
+    "policy_id": {
+      "type": "string"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "principal_id": {
+      "type": "string"
+    },
+    "agent_id": {
+      "type": "string"
+    },
+    "purpose": {
+      "type": "string"
+    },
+    "allowed_action_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_institutions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_products": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_data_classes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "amount_limit": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "counterparty_rules": {
+      "type": "object"
+    },
+    "approval_rules": {
+      "type": "object"
+    },
+    "valid_from": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "valid_until": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "ACTIVE",
+        "EXPIRED",
+        "REVOKED"
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+[
+  {
+    "policy_id": "policy-rate-001",
+    "version": 1,
+    "principal_id": "principal-demo-won",
+    "agent_id": "agent-rate-care-01",
+    "purpose": "금리인하요구권 신청 준비 및 승인 후 제출",
+    "allowed_action_types": [
+      "RATE_REDUCTION_REQUEST"
+    ],
+    "allowed_institutions": [
+      "HANUL_BANK"
+    ],
+    "allowed_products": [
+      "DEMO_LOAN_001"
+    ],
+    "allowed_data_classes": [
+      "LOAN_BALANCE",
+      "CURRENT_RATE",
+      "INCOME_CHANGE_FLAG",
+      "CREDIT_SCORE_BAND"
+    ],
+    "allowed_tools": [
+      "read_loan_profile",
+      "prepare_rate_reduction_request",
+      "submit_rate_reduction_request"
+    ],
+    "amount_limit": null,
+    "counterparty_rules": {
+      "mode": "NOT_APPLICABLE"
+    },
+    "approval_rules": {
+      "submit_requires_human": true
+    },
+    "valid_from": "2026-07-20T00:00:00Z",
+    "valid_until": "2026-08-19T23:59:59Z",
+    "status": "ACTIVE"
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "agent_id": "agent-rate-care-01",
+    "name": "RateCare Agent",
+    "owner_institution": "SafeDelegate Demo",
+    "role": "RATE_REDUCTION_ASSISTANT",
+    "autonomy_level": "L2",
+    "model": {
+      "provider": "mock",
+      "name": "deterministic-planner",
+      "version": "0.1"
+    },
+    "allowed_tools": [
+      "read_loan_profile",
+      "prepare_rate_reduction_request",
+      "submit_rate_reduction_request"
+    ],
+    "status": "ACTIVE",
+    "kill_switch_owner": "operator-demo",
+    "jurisdiction_tags": [
+      "KR"
+    ]
+  }
+]

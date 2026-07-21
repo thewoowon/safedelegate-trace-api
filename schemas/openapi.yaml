@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: SafeDelegate Trace API
+  version: 0.1.0
+servers:
+  - url: http://localhost:8000
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        '200':
+          description: Healthy
+  /v1/demo/bootstrap:
+    get:
+      operationId: bootstrapDemo
+      responses:
+        '200':
+          description: Seeded demo state
+  /v1/delegations:
+    post:
+      operationId: createDelegation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './delegation-policy.schema.json'
+      responses:
+        '201':
+          description: Created
+  /v1/action-requests:
+    post:
+      operationId: createActionRequest
+      responses:
+        '201':
+          description: Created
+  /v1/action-requests/{request_id}/plan:
+    post:
+      operationId: createPlan
+      parameters:
+        - in: path
+          name: request_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Plan created }
+  /v1/action-requests/{request_id}/evaluate:
+    post:
+      operationId: evaluatePlan
+      parameters:
+        - in: path
+          name: request_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Policy evaluation
+          content:
+            application/json:
+              schema:
+                $ref: './policy-evaluation.schema.json'
+  /v1/action-requests/{request_id}/approve:
+    post:
+      operationId: approvePlan
+      parameters:
+        - in: path
+          name: request_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Approved }
+  /v1/action-requests/{request_id}/execute:
+    post:
+      operationId: executeAction
+      parameters:
+        - in: path
+          name: request_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Executed or failed safely }
+  /v1/traces/{trace_id}:
+    get:
+      operationId: getTrace
+      parameters:
+        - in: path
+          name: trace_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Trace timeline }
+  /v1/receipts/{receipt_id}:
+    get:
+      operationId: getReceipt
+      parameters:
+        - in: path
+          name: receipt_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Action receipt
+          content:
+            application/json:
+              schema:
+                $ref: './action-receipt.schema.json'
+  /v1/security/scenarios/{scenario_id}/run:
+    post:
+      operationId: runSecurityScenario
+      parameters:
+        - in: path
+          name: scenario_id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Scenario result }

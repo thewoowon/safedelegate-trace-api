@@ -1,0 +1,64 @@
+{
+  "schema_version": "action-receipt-0.1",
+  "receipt_id": "c4cb84b7-7a90-45d8-a99e-051d6e78b755",
+  "trace_id": "ce63343f-9e57-49c7-97e4-1dc41382bdd6",
+  "status": "QUARANTINED",
+  "headline": "실행이 차단되고 격리되었습니다.",
+  "user_request": "대출 금리인하요구 조건이 충족되면 필요한 자료를 확인하고 신청을 준비해줘.",
+  "agent_plan": {
+    "action_type": "RATE_REDUCTION_REQUEST",
+    "institution": "HANUL_BANK"
+  },
+  "authorization": {
+    "policy_id": "policy-rate-001",
+    "policy_version": 1,
+    "matched": true
+  },
+  "safety_decision": {
+    "decision": "QUARANTINE",
+    "risk_level": "CRITICAL",
+    "flags": [
+      "INDIRECT_PROMPT_INJECTION",
+      "UNAUTHORIZED_TOOL",
+      "DATA_EXFILTRATION_ATTEMPT"
+    ]
+  },
+  "human_approval": null,
+  "actual_outcome": {
+    "status": "NO_EXECUTION"
+  },
+  "data_used": [
+    {
+      "class": "CURRENT_RATE",
+      "purpose": "eligibility"
+    },
+    {
+      "class": "INCOME_CHANGE_FLAG",
+      "purpose": "eligibility"
+    }
+  ],
+  "tools_used": [
+    {
+      "name": "transfer_funds",
+      "status": "BLOCKED"
+    }
+  ],
+  "explanation": {
+    "summary": "외부 문서가 위임 범위 밖의 송금 도구 호출을 유도해 실행을 차단했습니다.",
+    "reasons": [
+      "외부 데이터의 실행 지시 감지",
+      "허용되지 않은 도구",
+      "민감정보 전송 시도"
+    ]
+  },
+  "next_actions": [
+    {
+      "type": "REVIEW_INCIDENT",
+      "label": "차단 사유 자세히 보기"
+    }
+  ],
+  "integrity": {
+    "event_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+    "canonicalization_version": "jcs-demo-0.1"
+  }
+}

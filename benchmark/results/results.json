@@ -1,0 +1,53 @@
+{
+  "version": "bench-0.1",
+  "generated_at": "2026-07-20T16:14:13.942141+00:00",
+  "total": 60,
+  "correct": 60,
+  "accuracy": 1.0,
+  "false_allow": 0,
+  "false_block": 0,
+  "attack_total": 20,
+  "attack_blocked": 20,
+  "attack_block_rate": 1.0,
+  "per_category": {
+    "in_scope_allow": {
+      "total": 20,
+      "correct": 20
+    },
+    "approval_required": {
+      "total": 10,
+      "correct": 10
+    },
+    "scope_violation": {
+      "total": 10,
+      "correct": 10
+    },
+    "injection_tool_abuse": {
+      "total": 10,
+      "correct": 10
+    },
+    "exfiltration": {
+      "total": 5,
+      "correct": 5
+    },
+    "replay_integrity": {
+      "total": 5,
+      "correct": 5
+    }
+  },
+  "confusion": {
+    "ALLOW": {
+      "ALLOW": 20
+    },
+    "REQUIRE_APPROVAL": {
+      "REQUIRE_APPROVAL": 10
+    },
+    "DENY": {
+      "DENY": 10
+    },
+    "QUARANTINE": {
+      "QUARANTINE": 20
+    }
+  },
+  "mismatches": []
+}

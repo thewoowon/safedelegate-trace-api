@@ -1,0 +1,19 @@
+[
+  {
+    "profile_id": "loan-demo-001",
+    "principal_id": "principal-demo-won",
+    "institution": "HANUL_BANK",
+    "product": "DEMO_LOAN_001",
+    "notice": "합성 데이터입니다. 실제 대출 정보가 아닙니다.",
+    "data": {
+      "LOAN_BALANCE": { "amount": 32000000, "currency": "KRW" },
+      "CURRENT_RATE": { "rate_percent": 5.1 },
+      "INCOME_CHANGE_FLAG": { "increased": true, "as_of": "2026-06-30" },
+      "CREDIT_SCORE_BAND": { "band": "A" }
+    },
+    "eligibility": {
+      "eligible": true,
+      "reason_codes": ["INCOME_INCREASED", "CREDIT_BAND_IMPROVED"]
+    }
+  }
+]

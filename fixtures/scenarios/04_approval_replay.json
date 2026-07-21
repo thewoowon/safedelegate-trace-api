@@ -1,0 +1,7 @@
+{
+  "scenario_id": "approval-replay",
+  "name": "변경된 계획에 과거 승인 재사용",
+  "expected_decision": "QUARANTINE",
+  "expected_outcome": "NO_EXECUTION",
+  "attack": true
+}
