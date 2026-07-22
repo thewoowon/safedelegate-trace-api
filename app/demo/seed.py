@@ -86,6 +86,11 @@ def seed_demo(db: Session) -> dict[str, int]:
             )
         )
 
+    # Flush parents (principals, agents) before children so the foreign keys on
+    # delegation_policies resolve. Postgres enforces FKs; without this ordering the
+    # single-commit flush can insert a policy before its principal/agent.
+    db.flush()
+
     policies = _load_json(fixtures / "policies.json")
     for p in policies:
         db.add(
